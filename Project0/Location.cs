@@ -4,8 +4,8 @@ namespace Project
 {
 	public class Store
 	{
-		private string store;
-		private int inventory;
+		private string store { get; set; }	
+		private int inventory { get; set; }
 		public Store()
 		{
 		}

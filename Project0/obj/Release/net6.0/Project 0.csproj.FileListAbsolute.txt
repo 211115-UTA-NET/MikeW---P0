@@ -1,0 +1,14 @@
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\bin\Release\net6.0\Project 0.exe
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\bin\Release\net6.0\Project 0.deps.json
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\bin\Release\net6.0\Project 0.runtimeconfig.json
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\bin\Release\net6.0\Project 0.dll
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\bin\Release\net6.0\ref\Project 0.dll
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\bin\Release\net6.0\Project 0.pdb
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\obj\Release\net6.0\Project 0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\obj\Release\net6.0\Project 0.AssemblyInfoInputs.cache
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\obj\Release\net6.0\Project 0.AssemblyInfo.cs
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\obj\Release\net6.0\Project 0.csproj.CoreCompileInputs.cache
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\obj\Release\net6.0\Project 0.dll
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\obj\Release\net6.0\ref\Project 0.dll
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\obj\Release\net6.0\Project 0.pdb
+C:\Users\mjwaw\Revature\MikeW---P0\Project0\Project 0\obj\Release\net6.0\Project 0.genruntimeconfig.cache

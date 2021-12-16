@@ -4,8 +4,8 @@ namespace Project
 {	
 	public class Order
 	{
-		private string product;
-		private int quantity;
+		private string product { get; set; }
+		private int quantity { get; set; }
 		public Order(string product, int quantity)
 		{
 			this.product = product;

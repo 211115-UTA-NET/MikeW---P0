@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\Project.csproj": {}
+    "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\StoreDB\\StoreDB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\Project.csproj": {
+    "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\StoreDB\\StoreDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\Project.csproj",
-        "projectName": "Project",
-        "projectPath": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\Project.csproj",
+        "projectUniqueName": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\StoreDB\\StoreDB.csproj",
+        "projectName": "StoreDB",
+        "projectPath": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\StoreDB\\StoreDB.csproj",
         "packagesPath": "C:\\Users\\mjwaw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\obj\\",
+        "outputPath": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\StoreDB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mjwaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

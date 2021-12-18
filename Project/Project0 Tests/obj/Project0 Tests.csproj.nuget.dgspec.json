@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\Project.csproj": {}
+    "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project0 Tests\\Project0 Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\Project.csproj": {
+    "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project0 Tests\\Project0 Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\Project.csproj",
-        "projectName": "Project",
-        "projectPath": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\Project.csproj",
+        "projectUniqueName": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project0 Tests\\Project0 Tests.csproj",
+        "projectName": "Project0 Tests",
+        "projectPath": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project0 Tests\\Project0 Tests.csproj",
         "packagesPath": "C:\\Users\\mjwaw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project\\obj\\",
+        "outputPath": "C:\\Users\\mjwaw\\Revature\\MikeW---P0\\Project\\Project0 Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mjwaw\\AppData\\Roaming\\NuGet\\NuGet.Config",

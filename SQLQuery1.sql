@@ -1,9 +1,8 @@
---Tables for P0
-
 Create TABLE Inventory
 (
     ItemName VARCHAR (50) PRIMARY KEY,
     Quantity INT NOT NULL,
+	Price Decimal NOT NULL
 );
 
 CREATE TABLE Store
@@ -27,15 +26,17 @@ CREATE TABLE Orders
     PreviousList VARCHAR (50) NOT NULL, 
 );
 
-INSERT Inventory (ItemName, Quantity) 
+INSERT Inventory (ItemName, Quantity, Price) 
 Values 
-('Apples', 50),
-('Bananas', 50),
-('Bread', 25),
-('Milk', 25),
-('Ground Beef', 25),
-('Potato Chips', 15),
-('Pizza', 20);
+('Apples', 50, 0.50),
+('Bananas', 50, 0.50),
+('Bread', 25, 2.00),
+('Milk', 25, 2.00),
+('Chicken pieces', 25, 3.00),
+('Potato Chips', 15, 2.15),
+('Pizza', 20, 3.25),
+('Chocolate Chip Cookies', 50, 1.00);
+
 
 INSERT Store (CityName, StateName)
 VALUES

@@ -13,8 +13,22 @@ namespace Project
 
         public Store()
         {
+            //var InventoryList = new List<string>();
+            //InventoryList.Add("Apples");
+            //InventoryList.Add("Bananas");
+            //InventoryList.Add("Bread");
+            //InventoryList.Add("Milk");
+            //InventoryList.Add("Chicken Pieces");
+            //InventoryList.Add("Potato Chips");
+            //InventoryList.Add("Pizza");
+            //InventoryList.Add("Chocolate Chip Cookies");
+            //InventoryList.Add("Salad");
+            //InventoryList.Add("Oranges");
+
+
             InventoryList = new List<Inventory>();
             ShoppingList = new List<Inventory>();
+
         }
 
 

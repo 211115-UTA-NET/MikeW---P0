@@ -101,16 +101,3 @@ namespace Project
         }
     }
 }
-            //Inventory d = new Inventory(123, "apples", 0.10M);
-            //Inventory e = new Inventory(456, "bananas", 1.00M);
-            //Console.WriteLine("Inventory a is as follows " + d.ItemId + " " + d.ItemName + " " + d.Price);
-            //Console.WriteLine("Inventory a item number is " + e.ItemId +" it is " + e.ItemName + " and costs " + e.Price);
-            
-            //Store cornerStore = new Store();
-
-            //cornerStore.ShoppingList.Add(d);
-            //cornerStore.ShoppingList.Add(e);
-
-            //decimal total = cornerStore.Checkout();
-            //Console.WriteLine(total);
-            //Console.ReadLine();

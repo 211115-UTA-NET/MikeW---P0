@@ -14,12 +14,25 @@ namespace Project
             Store store = new Store();
             
             Console.WriteLine("Welcome to The Corner Store. \n Please enter your first name.");
-            Console.ReadLine();
-            Console.WriteLine("Please enter your last name.");
-            Console.ReadLine();
-            Console.WriteLine("What do you want to buy?");
+            try
+            {
+                var firstName = Console.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             
-
+            Console.WriteLine("Please enter your last name.");
+            try
+            {
+                var lastName = Console.ReadLine();
+            }
+            catch(Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            
             int action = chooseAction();
 
             while(action != 0)
@@ -52,7 +65,7 @@ namespace Project
                     case 2:
                         Console.WriteLine("You chose to add an item to your cart.");
                         printInventory(store);
-                        Console.WriteLine("Which item would you liek to buy? (number)");
+                        Console.WriteLine("Which item would you like to buy? (number)");
                         int itemChosen = int.Parse(Console.ReadLine());
 
                         store.ShoppingList.Add(store.InventoryList[itemChosen]);
@@ -97,7 +110,6 @@ namespace Project
             
             choice = int.Parse(Console.ReadLine());
             return choice;
-        
         }
     }
 }

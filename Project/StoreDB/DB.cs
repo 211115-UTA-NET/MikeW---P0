@@ -1,11 +1,12 @@
 ﻿using System.Data.SqlClient;
 
 
-string connectionString = File.ReadAllText(File.);
+
+string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
 using SqlConnection connection = new(connectionString);
 connection.Open();
 
-string commandText = "SELECT * FROM PROJECT0";
+string commandText = "SELECT * FROM Inventory"; 
 
 using SqlCommand command = new(commandText, connection);
 
@@ -14,9 +15,9 @@ using SqlDataReader reader = command.ExecuteReader();
 
 while (reader.Read())
 {
-    string Inventory = reader.GetString(0);
+    string ItemName = reader.GetString(0);
+    int Quantity = reader.GetInt32(1);
+    decimal Price = reader.GetDecimal(2);
 
-    decimal Price = reader.GetDecimal(1);
-
-    Console.WriteLine($"{Inventory} and {Price}");
+    Console.WriteLine($"{ItemName} and {Quantity} and {Price}");
 }

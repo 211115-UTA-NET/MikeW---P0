@@ -5,7 +5,27 @@
       "ProjectGuid": "64fe0d15-7bb0-404f-b425-157d8f57e3a7",
       "DisplayName": "Project",
       "ColorIndex": 0
+    },
+    "23a9d5d0-97f8-4bb9-be46-06e8f4395eba": {
+      "ProjectGuid": "23a9d5d0-97f8-4bb9-be46-06e8f4395eba",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    },
+    "58d2242d-e77f-4efe-adc9-4d2dc7f3a1be": {
+      "ProjectGuid": "58d2242d-e77f-4efe-adc9-4d2dc7f3a1be",
+      "DisplayName": "StoreDB",
+      "ColorIndex": 2
+    },
+    "1a6b4a7e-4420-4379-a02a-3de70b98015f": {
+      "ProjectGuid": "1a6b4a7e-4420-4379-a02a-3de70b98015f",
+      "DisplayName": "Project0 Tests",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }

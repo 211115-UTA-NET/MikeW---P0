@@ -30,8 +30,6 @@ namespace Project
             ShoppingList = new List<Inventory>();
 
         }
-
-
         public decimal Checkout()
         {
             decimal totalCost = 0;

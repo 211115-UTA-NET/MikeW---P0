@@ -13,15 +13,12 @@ CREATE TABLE Store
 
 CREATE TABLE Customers
 (
-    CustomerID INT PRIMARY KEY,
-    FirstName VARCHAR (20) NOT NULL,
-    LastName VARCHAR (20) NOT NULL,
-    CityName VARCHAR (50) NOT NULL,
+    FirstName VARCHAR (20)Primary KEY,
+    LastName VARCHAR (20) NOT NULL
 );
 
 CREATE TABLE Orders
 (
-    CustomerID INT NOT NULL,
     CurrentList VARCHAR (50) NOT NULL,
     PreviousList VARCHAR (50) NOT NULL, 
 );
@@ -42,14 +39,14 @@ INSERT Store (CityName, StateName)
 VALUES
 ('Milwaukee', 'WI');
 
-INSERT Customers (CustomerID, FirstName, LastName, CityName)
+INSERT Customers (FirstName, LastName)
 VALUES
-(123, 'Bobby', 'Hill', 'Milwaukee'),
-(456, 'Christian', 'Yelich', 'Milwaukee'),
-(789, 'Giannis', 'Antetokounmpo', 'Milwaukee');
+('Bobby', 'Hill'),
+('Christian', 'Yelich'),
+('Giannis', 'Antetokounmpo');
 
-INSERT Orders (CustomerID, CurrentList, PreviousList)
+INSERT Orders (CurrentList, PreviousList)
 Values
-(123, ' ', ' '),
-(456, ' ', ' '),
-(789, '', ' ');
+(' ', ' '),
+(' ', ' '),
+('', ' ');

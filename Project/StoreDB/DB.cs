@@ -1,5 +1,7 @@
-﻿using System.Data;
+﻿
+using System.Data;
 using System.Data.SqlClient;
+
 
 
 
@@ -19,9 +21,10 @@ string firstName = Console.ReadLine();
 Console.WriteLine("What is your last name?");
 string lastName = Console.ReadLine();
 
-AddNewCustomer(firstName, lastName);
 
-void AddNewCustomer( string firstName, string lastName)
+//adds a new customer
+AddNewCustomer(firstName, lastName);
+void AddNewCustomer(string firstName, string lastName)
 {
     using SqlConnection connection = new(connectionString);
     connection.Open();
@@ -32,30 +35,27 @@ void AddNewCustomer( string firstName, string lastName)
 
     command.ExecuteNonQuery();
     connection.Close();
-
 }
+
+//shows customers in the database
+Customers();
 void Customers()
 {
     using SqlConnection connection = new(connectionString);
     connection.Open();
-    string commandText = @"SELECT Customers.FirstName, Customers.LastName";
-    using SqlCommand command = new(commandText, connection);
+    using IDbCommand command = new SqlCommand("SELECT Customers.CustomerId, Customers.FirstName, Customers.LastName FROM Customers;", connection);
+    using IDataReader reader = command.ExecuteReader();
 
-    using SqlDataAdapter adapter = new(command);
-    DataSet dataSet = new();
-    adapter.Fill(dataSet);
-
-    connection.Close();
-
-
-    DataColumn? firstNameColumn = dataSet.Tables[0].Columns[0];
-    foreach(DataRow row in dataSet.Tables[0].Rows)
+    while (reader.Read())
     {
-        Console.WriteLine($"{row["FirstName"]}: \"{row["LastName"]}\"");
+        int customerId = reader.GetInt32(0);
+        string customerFirstName = reader.GetString(1);
+        string customerLastName = reader.GetString(2);
+
+        Console.WriteLine($"The customer ID is: {customerId}, their name is {customerFirstName} {customerLastName}");
     }
+    connection.Close();
 }
-
-
 
 while (reader.Read())
 {
@@ -65,10 +65,3 @@ while (reader.Read())
 
     Console.WriteLine($"In stock are {ItemName} and there are {Quantity}, each one costs ${Price}");
 }
-
-//searching a database for a customer
-
-//string Customer(string FirstName, string LastName);
-
-
-

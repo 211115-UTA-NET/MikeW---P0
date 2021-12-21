@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Project
+﻿namespace Project
 {
     class Project
     {
         static void Main(string[] args)
         {
-            
-            Store store = new Store();
+            Order store = new Order();
             
             Console.WriteLine("Welcome to The Corner Store. \n Please enter your first name.");
             try
@@ -75,7 +68,7 @@ namespace Project
 
                     case 3:
                         printShoppingCart(store);
-                        Console.WriteLine($"the total cost of your items is: {store.Checkout}");
+                        Console.WriteLine($"The total cost of your items is: {store.Checkout()}");
                         break;
 
                     default:
@@ -86,7 +79,7 @@ namespace Project
             }
         }
 
-        private static void printShoppingCart(Store store)
+        private static void printShoppingCart(Order store)
         {
             Console.WriteLine("Items you have chosen to buy: ");
             for (int i = 0; i < store.ShoppingList.Count; i++)
@@ -95,7 +88,7 @@ namespace Project
             }
         }
 
-        private static void printInventory(Store store)
+        private static void printInventory(Order store)
         {
             for(int i = 0; i < store.InventoryList.Count; i++)
             {

@@ -6,25 +6,25 @@ Nov 15 2021 Arlington .NET / Richard Hawkins, Nick Escalona
 ## functionality
 * interactive console application
 * place orders to store locations for customers
-* add a new customer
+* add a new customer - Done
 * search customers by name
 * display details of an order
 * display all order history of a store location
 * display all order history of a customer
 * input validation
 * exception handling
-* persistent data (no prices, customers, order history, etc. hardcoded in C#)
+* persistent data (no prices, customers, order history, etc. hardcoded in C#) - DONE
 * (optional: order history can be sorted by earliest, latest, cheapest, most expensive, etc.)
 * (optional: get a suggested order for a customer based on his order history)
 * (optional: display some statistics based on order history)
 * (optional: asynchronous network & file I/O)
 
 ## design
-* don't use public fields
+* don't use public fields- DONE
 * define and use at least one interface
 * documentation with `<summary>` XML comments on all public types and members (optional: `<params>` and `<return>`)
 
-#### customer
+#### customer - DONE!
 * has first name, last name, etc.
 * (optional: has a default store location to order from)
 

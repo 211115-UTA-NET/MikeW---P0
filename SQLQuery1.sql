@@ -15,8 +15,8 @@ CREATE TABLE Store
 
 CREATE TABLE Customers
 (
-	CustomerId INT IDENTITY,
-    FirstName VARCHAR (20)Primary KEY,
+	CustomerId INT IDENTITY PRIMARY KEY,
+    FirstName VARCHAR (20) NOT NULL,
     LastName VARCHAR (20) NOT NULL
 );
 

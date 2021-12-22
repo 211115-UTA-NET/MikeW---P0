@@ -10,10 +10,7 @@ namespace Project
     public class Customer : Person
     {
         public Customer(int customerId, string firstName, string lastName) : base(firstName, lastName)
-        {
-            
-
-            
+        { 
         }
             public static void AddNewCustomer(string firstName, string lastName)
             {

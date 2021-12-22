@@ -66,7 +66,7 @@ namespace Project
 
             string lastName = Convert.ToString(Console.ReadLine());
 
-            Console.WriteLine("Which store do you want to shop at? \n 1) Milwaukee \n 2) Maidson");
+            Console.WriteLine("Which store do you want to shop at? \n 1) Milwaukee \n 2) Madison");
             int input = int.Parse(Console.ReadLine());
 
             int action = chooseAction();

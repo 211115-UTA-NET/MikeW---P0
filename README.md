@@ -5,9 +5,9 @@ Nov 15 2021 Arlington .NET / Richard Hawkins, Nick Escalona
 
 ## functionality
 * interactive console application - DONE
-* place orders to store locations for customers
+* place orders to store locations for customers - Done
 * add a new customer - Done
-* search customers by name
+* search customers by name - Done
 * display details of an order
 * display all order history of a store location
 * display all order history of a customer
@@ -29,15 +29,15 @@ Nov 15 2021 Arlington .NET / Richard Hawkins, Nick Escalona
 * (optional: has a default store location to order from)
 
 #### order
-* has a store location
-* has a customer
-* has an order time (when the order was placed)
-* can contain multiple kinds of product in the same order
-* rejects orders with unreasonably high product quantities
+* has a store location - Done
+* has a customer - Done
+* has an order time (when the order was placed) -Done
+* can contain multiple kinds of product in the same order - Done
+* rejects orders with unreasonably high product quantities 
 * (optional: some additional business rules, like special deals)
 
 #### location
-* has an inventory
+* has an inventory - Done
 * inventory decreases when orders are accepted
 * rejects orders that cannot be fulfilled with remaining inventory
 * (optional: for at least one product, more than one inventory item decrements when ordering that product)

@@ -9,22 +9,48 @@ namespace Project
 {
     public class Inventory
     {
-        //public int ItemId { get; set; }
-       public string Name { get; set; }
-       public decimal Price { get; set; }
+        internal string Name { get; set; }
+        internal decimal price { get; set; }
+        internal int quantity { get; set; }
 
-        public Inventory ()
+        public Inventory()
         {
-            //ItemId = 0;
             Name = "nothing yet";
-            Price = 0.00M;  
+            price = 0;
         }
 
-        public Inventory(string b, decimal c)
+        public Inventory(string a, int b, decimal c )
         {
-            //ItemId = a;
-            Name = b;
-            Price = c;
+            Name = a;
+            quantity = b;
+            price = c;
+            
         }
+        public override string ToString()
+        {
+            return "Name: " + Name + " the price is: $" + price + " each";
+        }
+        public static void AddNewOrder()
+        {
+            string location = " ";
+            int customerId = 1;
+            DateTime orderDate = DateTime.Now;
+            string Name = " ";
+
+            string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            using SqlCommand command = new($"INSERT INTO Orders (StoreLocation, CustomerId, OrderDate, ItemName) Values(@location, @customerId, @orderDate, @Name);", connection);
+            command.Parameters.AddWithValue("@location", location);
+            command.Parameters.AddWithValue("@customerId", customerId);
+            command.Parameters.AddWithValue("@orderDate", orderDate);
+            command.Parameters.AddWithValue("@itemName", Name);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+
     }
 }

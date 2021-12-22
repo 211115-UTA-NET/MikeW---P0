@@ -7,8 +7,10 @@ Create TABLE Inventory
 
 CREATE TABLE Store
 (
-    CityName VARCHAR (20) PRIMARY KEY,
-    StateName VARCHAR (20) NOT NULL,
+    [Location] VARCHAR(30) NOT NULL,
+	ItemName VARCHAR(50) Primary KEY,
+	Quantity INT NOT NULL,
+	Price MONEY NOT NULL,
 );
 
 CREATE TABLE Customers
@@ -19,25 +21,23 @@ CREATE TABLE Customers
 
 CREATE TABLE Orders
 (
-    CurrentList VARCHAR (50) NOT NULL,
-    PreviousList VARCHAR (50) NOT NULL, 
+   StoreLocation VARCHAR(30),
+   CustomerId INT PRIMARY KEY,
+   OrderDate DATETIME2,
+   ItemName VARCHAR(50) FOREIGN KEY REFERENCES Store(ItemName)
 );
 
-INSERT Inventory (ItemName, Quantity, Price) 
+INSERT Store ([Location], ItemName, Quantity, Price) 
 Values 
-('Apples', 50, 0.50),
-('Bananas', 50, 0.50),
-('Bread', 25, 2.00),
-('Milk', 25, 2.00),
-('Chicken pieces', 25, 3.00),
-('Potato Chips', 15, 2.15),
-('Pizza', 20, 3.25),
-('Chocolate Chip Cookies', 50, 1.00);
+('Milwaukee, WI', 'Apples', 50, 0.50),
+('Milwaukee, WI', 'Bananas', 50, 0.50),
+('Milwaukee, WI', 'Bread', 25, 2.00),
+('Milwaukee, WI', 'Milk', 25, 2.00),
+('Milwaukee, WI', 'Chicken pieces', 25, 3.00),
+('Milwaukee, WI', 'Potato Chips', 15, 2.15),
+('Milwaukee, WI', 'Pizza', 20, 3.25),
+('Milwaukee, WI', 'Chocolate Chip Cookies', 50, 1.00);
 
-
-INSERT Store (CityName, StateName)
-VALUES
-('Milwaukee', 'WI');
 
 INSERT Customers (FirstName, LastName)
 VALUES
@@ -45,8 +45,4 @@ VALUES
 ('Christian', 'Yelich'),
 ('Giannis', 'Antetokounmpo');
 
-INSERT Orders (CurrentList, PreviousList)
-Values
-(' ', ' '),
-(' ', ' '),
-('', ' ');
+

@@ -4,15 +4,15 @@ Project 0
 Nov 15 2021 Arlington .NET / Richard Hawkins, Nick Escalona
 
 ## functionality
-* interactive console application
+* interactive console application - DONE
 * place orders to store locations for customers
 * add a new customer - Done
 * search customers by name
 * display details of an order
 * display all order history of a store location
 * display all order history of a customer
-* input validation
-* exception handling
+* input validation - Done
+* exception handling - Done
 * persistent data (no prices, customers, order history, etc. hardcoded in C#) - DONE
 * (optional: order history can be sorted by earliest, latest, cheapest, most expensive, etc.)
 * (optional: get a suggested order for a customer based on his order history)

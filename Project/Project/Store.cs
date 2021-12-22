@@ -10,8 +10,8 @@ namespace Project
 {
 	public class Store
 	{
-		public List<Order> InventoryList { get; set; }
-		public List<Order> ShoppingList { get; set; }
+		internal List<Order> InventoryList { get; set; }
+		internal List<Order> ShoppingList { get; set; }
 		public Store()
 		{
 			InventoryList = new List<Order>();
@@ -29,7 +29,7 @@ namespace Project
             ShoppingList.Clear();
             return totalCost;
         }
-        public static void  StoreInventoryMilwaukee()
+        internal static void  StoreInventoryMilwaukee()
         {
 			string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
 
@@ -52,7 +52,7 @@ namespace Project
 				Console.WriteLine($"In stock in {Location} are {ItemName}, there are {Quantity}, each one costs ${Price}");
 			}
 		}
-		public static void StoreInventoryMadison()
+		internal static void StoreInventoryMadison()
 		{
 			string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
 

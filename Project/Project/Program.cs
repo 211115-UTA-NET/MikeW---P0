@@ -18,7 +18,7 @@ namespace Project
             using SqlConnection connection = new(connectionString);
 
             Store store = new Store();
-
+                        //tried to create a manager that would bea ble to search customers and order history.
             //Console.WriteLine("Are you a Store Manager? \n Yes or No?");
             //string answer = Console.ReadLine();
             //if (answer == "y" || answer == "yes")

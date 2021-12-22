@@ -12,19 +12,19 @@ namespace Project
         public Customer(int customerId, string firstName, string lastName) : base(firstName, lastName)
         { 
         }
-            public static void AddNewCustomer(string firstName, string lastName)
-            {
-            string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
-                using SqlConnection connection = new(connectionString);
-                connection.Open();
+            //public static void AddNewCustomer(string firstName, string lastName)
+            //{
+            //string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
+            //    using SqlConnection connection = new(connectionString);
+            //    connection.Open();
 
-                using SqlCommand command = new($"INSERT INTO Customers (FirstName, LastName) Values(@firstName, @lastName);", connection);
-                command.Parameters.AddWithValue("@firstName", firstName);
-                command.Parameters.AddWithValue("@lastName", lastName);
+            //    using SqlCommand command = new($"INSERT INTO Customers (FirstName, LastName) Values(@firstName, @lastName);", connection);
+            //    command.Parameters.AddWithValue("@firstName", firstName);
+            //    command.Parameters.AddWithValue("@lastName", lastName);
 
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
+            //    command.ExecuteNonQuery();
+            //    connection.Close();
+            //}
     }
 }
 

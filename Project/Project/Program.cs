@@ -24,175 +24,227 @@ namespace Project
             //if (answer == "y" || answer == "yes")
             //{
 
-            //        Console.WriteLine("1. Do you want to search for a customer?");
-            //        Console.WriteLine("2. Do you want to see a customers order history?");
-            //        Console.WriteLine("3. Do you want to see the order history from a store?");
-            //        Console.WriteLine("4. Quit application.");
+            //    Console.WriteLine("1. Do you want to search for a customer?");
+            //    Console.WriteLine("2. Do you want to see a customers order history?");
+            //    Console.WriteLine("3. Do you want to see the order history from a store?");
+            //    Console.WriteLine("4. Back to Menu");
             //    int value = Convert.ToInt32(Console.ReadLine());
 
-            //        switch (value)
-            //        {
-            //            case 1:
-            //                Console.WriteLine("Please enter your query.");
+            //    if (value!= 4)                
+            //       {
+            //            Console.WriteLine("Please enter your query.");
 
-            //                connection.Open();
-            //                SqlCommand command;
-            //                SqlDataReader dataReader;
-            //                String sql, Output = " ";
-            //                sql = Console.ReadLine();
-            //                command = new SqlCommand(sql, connection);
-            //                dataReader = command.ExecuteReader();
-            //                while (dataReader.Read())
-            //                {
-            //                    Output = Output + dataReader.GetValue(0) + "  " + dataReader.GetValue(1) + "\n";
-            //                }
-            //                Console.WriteLine(Output);
-            //                dataReader.Close();
-            //                command.Dispose();
-            //                connection.Close();
-            //                break;
+            //            connection.Open();
+            //            SqlCommand command;
+            //            SqlDataReader dataReader;
+            //            String sql, Output = " ";
+            //            sql = Console.ReadLine();
+            //            command = new SqlCommand(sql, connection);
+            //            dataReader = command.ExecuteReader();
+            //            while (dataReader.Read())
+            //            {
+            //                Output = Output + dataReader.GetValue(0) + "  " + dataReader.GetValue(1) + "\n";
+            //            }
+            //            Console.WriteLine(Output);
+            //            dataReader.Close();
+            //            command.Dispose();
+            //            connection.Close();
 
-            //        }
+
+            //    }
 
             //}
-            //else { 
+            //else
+            //{
 
             Console.WriteLine("Welcome to The Corner Store. \n Please enter your first name.");
-            try
-            {
-                string firstName = Console.ReadLine();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+
+            string firstName = Convert.ToString(Console.ReadLine());
+
 
             Console.WriteLine("Please enter your last name.");
-            try
-            {
-                string lastName = Console.ReadLine();
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-            }
+
+            string lastName = Convert.ToString(Console.ReadLine());
+
             Console.WriteLine("Which store do you want to shop at? \n 1) Milwaukee \n 2) Maidson");
             int input = int.Parse(Console.ReadLine());
 
             int action = chooseAction();
-            //Customer.AddNewCustomer(firstName, lastName);
-            if (input == 1)
+
+
+            AddNewCustomer(firstName, lastName);
+            void AddNewCustomer(string firstName, string lastName)
             {
+                using SqlConnection connection = new(connectionString);
+                connection.Open();
 
-                while (action != 0)
+                using SqlCommand command = new($"INSERT INTO Customers (FirstName, LastName) Values(@firstName, @lastName);", connection);
+                command.Parameters.AddWithValue("@firstName", firstName);
+                command.Parameters.AddWithValue("@lastName", lastName);
+
+                command.ExecuteNonQuery();
+                connection.Close();
+
+
+                if (input == 1)
                 {
-                    Console.WriteLine($"You chose: {action}");
 
-
-                    switch (action)
+                    while (action != 0)
                     {
-                        case 1:
-                            Store.StoreInventoryMilwaukee();
-                            break;
-
-                        case 2:
-                            Console.WriteLine("You chose to add an item to your cart.");
+                        Console.WriteLine($"You chose: {action}");
 
 
-                            Console.WriteLine("What is the item name? apples, bananas, etc.");
-                            string itemName = Console.ReadLine();
+                        switch (action)
+                        {
+                            case 1:
+                                Store.StoreInventoryMilwaukee();
+                                break;
 
-                            Console.WriteLine("How many do you want to add to your cart?");
-                            int quantity = int.Parse(Console.ReadLine());
-
-                            Console.WriteLine("What is the cost of the item?");
-                            int price = int.Parse(Console.ReadLine());
-
-                            Order newOrder = new Order(itemName, quantity, price);
-                            store.InventoryList.Add(newOrder);
-
-                            printInventory(store);
-                            break;
+                            case 2:
+                                Console.WriteLine("You chose to add an item to your cart.");
 
 
-                        case 3:
-                            Console.WriteLine("You chose to add an item to your cart.");
-                            printInventory(store);
-                            Console.WriteLine("Which item would you like to buy? (number)");
-                            int itemChosen = int.Parse(Console.ReadLine());
+                                Console.WriteLine("What is the item name? apples, bananas, etc.");
+                                string itemName = Console.ReadLine();
 
-                            store.ShoppingList.Add(store.InventoryList[itemChosen]);
+                                Console.WriteLine("How many do you want to add to your cart?");
+                                int quantity = Convert.ToInt32(Console.ReadLine());
 
-                            printShoppingCart(store);
-                            break;
+                                Console.WriteLine("What is the cost of the item?");
+                                int price = Convert.ToInt32(Console.ReadLine());
 
-                        case 4:
-                            printShoppingCart(store);
-                            Order.AddNewOrderMilwaukee();
-                            Console.WriteLine($"The total cost of your items is: ${store.Checkout()}");
-                            break;
+                                Order newOrder = new Order(itemName, quantity, price);
+                                store.InventoryList.Add(newOrder);
 
-                        default:
-                            break;
-                    }
-                }
-            }
-            else
-            {
-                while (action != 0)
-                {
-                    Console.WriteLine($"You chose: {action}");
-
-                    switch (action)
-                    {
-                        case 1:
-                            Store.StoreInventoryMadison();
-                            break;
-
-                        case 2:
-                            Console.WriteLine("You chose to add an item to your cart.");
+                                printInventory(store);
+                                break;
 
 
-                            Console.WriteLine("What is the item name? apples, bananas, etc.");
-                            string itemName = Console.ReadLine();
+                            case 3:
+                                Console.WriteLine("You chose to add an item to your cart.");
+                                printInventory(store);
+                                Console.WriteLine("Which item would you like to buy? (number)");
+                                int itemChosen = int.Parse(Console.ReadLine());
 
-                            Console.WriteLine("How many do you want to add to your cart?");
-                            int quantity = int.Parse(Console.ReadLine());
+                                store.ShoppingList.Add(store.InventoryList[itemChosen]);
 
-                            Console.WriteLine("What is the cost of the item?");
-                            int price = int.Parse(Console.ReadLine());
+                                printShoppingCart(store);
+                                break;
 
-                            Order newOrder = new Order(itemName, quantity, price);
-                            store.InventoryList.Add(newOrder);
+                            case 4:
+                                printShoppingCart(store);
+                                void AddNewOrderMilwaukee()
+                                {
+                                    string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
 
-                            printInventory(store);
-                            break;
+                                    string storeLocation = "Milwaukee, WI ";
+                                    int orderId = 1;
+                                    DateTime orderDate = DateTime.Now;
+                                    //string firstName = " ";
+                                    //string lastName = " ";
 
 
-                        case 3:
-                            Console.WriteLine("You chose to add an item to your cart.");
-                            printInventory(store);
-                            Console.WriteLine("Which item would you like to buy? (number)");
-                            int itemChosen = int.Parse(Console.ReadLine());
+                                    using SqlConnection connection = new(connectionString);
+                                    connection.Open();
 
-                            store.ShoppingList.Add(store.InventoryList[itemChosen]);
+                                    using SqlCommand command = new($"INSERT INTO Orders (StoreLocation, OrderId, OrderDate, FirstName, LastName) Values(@storeLocation, @orderId, @orderDate, @firstName, @lastName);", connection);
+                                    command.Parameters.AddWithValue("@storeLocation", storeLocation);
+                                    command.Parameters.AddWithValue("@orderId", orderId);
+                                    command.Parameters.AddWithValue("@orderDate", orderDate);
+                                    command.Parameters.AddWithValue("@firstName", firstName);
+                                    command.Parameters.AddWithValue("@lastName", lastName);
+                                    command.ExecuteNonQuery();
+                                    connection.Close();
+                                }
+                                Console.WriteLine($"The total cost of your items is: ${store.Checkout()}");
+                                break;
 
-                            printShoppingCart(store);
-                            break;
-
-                        case 4:
-                            printShoppingCart(store);
-                            Order.AddNewOrderMadison();
-                            Console.WriteLine($"The total cost of your items is: ${store.Checkout()}");
-                            break;
-
-                        default:
-                            break;
+                            default:
+                                break;
+                        }
+                        action = chooseAction();
                     }
 
-                    action = chooseAction();
-                }
 
+                    if (input == 2)
+                    {
+                        while (action != 0)
+                        {
+                            Console.WriteLine($"You chose: {action}");
+
+                            switch (action)
+                            {
+                                case 1:
+                                    Store.StoreInventoryMadison();
+                                    break;
+
+                                case 2:
+                                    Console.WriteLine("You chose to add an item to your cart.");
+
+
+                                    Console.WriteLine("What is the item name? apples, bananas, etc.");
+                                    string itemName = Console.ReadLine();
+
+                                    Console.WriteLine("How many do you want to add to your cart?");
+                                    int quantity = int.Parse(Console.ReadLine());
+
+                                    Console.WriteLine("What is the cost of the item?");
+                                    int price = int.Parse(Console.ReadLine());
+
+                                    Order newOrder = new Order(itemName, quantity, price);
+                                    store.InventoryList.Add(newOrder);
+
+                                    printInventory(store);
+                                    break;
+
+
+                                case 3:
+                                    Console.WriteLine("You chose to add an item to your cart.");
+                                    printInventory(store);
+                                    Console.WriteLine("Which item would you like to buy? (number)");
+                                    int itemChosen = int.Parse(Console.ReadLine());
+
+                                    store.ShoppingList.Add(store.InventoryList[itemChosen]);
+
+                                    printShoppingCart(store);
+                                    break;
+
+                                case 4:
+                                    printShoppingCart(store);
+                                    void AddNewOrderMadison()
+                                    {
+                                        string storeLocation = "Madison, WI ";
+                                        int orderId = 1;
+                                        DateTime orderDate = DateTime.Now;
+                                        //string firstName = " ";
+                                        //string lastName = " ";
+
+                                        string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
+
+                                        using SqlConnection connection = new(connectionString);
+                                        connection.Open();
+
+                                        using SqlCommand command = new($"INSERT INTO Orders (StoreLocation, OrderId, OrderDate, FirstName, LastName) Values(@storeLocation, @orderId, @orderDate, @firstName, @lastName);", connection);
+                                        command.Parameters.AddWithValue("@storeLocation", storeLocation);
+                                        command.Parameters.AddWithValue("@orderId", orderId);
+                                        command.Parameters.AddWithValue("@orderDate", orderDate);
+                                        command.Parameters.AddWithValue("@firstName", firstName);
+                                        command.Parameters.AddWithValue("@lastName", lastName);
+                                        command.ExecuteNonQuery();
+                                        connection.Close();
+                                    }
+                                    Console.WriteLine($"The total cost of your items is: ${store.Checkout()}");
+                                    break;
+
+                                default:
+                                    break;
+                            }
+
+                            action = chooseAction();
+                        }
+
+                    }
+                }
             }
         }
         private static void printShoppingCart(Store store)
@@ -216,11 +268,19 @@ namespace Project
         {
             int choice = 0;
             Console.WriteLine("Choose an action:\n 0) Quit.\n 1) Show Inventory \n 2) Add items to Cart, \n 3) Buy Items, \n 4) Checkout.");
+            try
+            {
+                choice = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-            choice = int.Parse(Console.ReadLine());
             return choice;
         }
     }
 }
+
 
 

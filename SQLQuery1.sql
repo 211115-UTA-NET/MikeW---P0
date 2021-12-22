@@ -15,6 +15,7 @@ CREATE TABLE Store
 
 CREATE TABLE Customers
 (
+	CustomerId INT IDENTITY,
     FirstName VARCHAR (20)Primary KEY,
     LastName VARCHAR (20) NOT NULL
 );
@@ -57,6 +58,6 @@ VALUES
 ('Christian', 'Yelich'),
 ('Giannis', 'Antetokounmpo');
 
-DROP TABLE Orders;
+DROP TABLE Customers;
 
-SELECT * From Customers WHERE FirstName = 'Bobby' AND LastName = 'Hill';
+SELECT * From Customers WHERE FirstName = 'Bobby';

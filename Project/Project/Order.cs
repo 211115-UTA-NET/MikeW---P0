@@ -28,15 +28,15 @@ namespace Project
         }
         public override string ToString()
         {
-            return "Name: " + Name + " the price is: $" + price + " each";
+            return "Name: " + Name + " the price is: $" + price;
         }
             
         public static void AddNewOrderMilwaukee()
         {
             string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
             
-            string location = "Milwaukee, WI ";
-            int customerId = 1;
+            string storeLocation = "Milwaukee, WI ";
+            int orderId = 1;
             DateTime orderDate = DateTime.Now;
             string firstName = " ";
             string lastName = " ";
@@ -45,9 +45,9 @@ namespace Project
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            using SqlCommand command = new($"INSERT INTO Orders (StoreLocation, CustomerId, OrderDate, FirstName, LastName) Values(@location, @customerId, @orderDate, @firstName, @lastName);", connection);
-            command.Parameters.AddWithValue("@location", location);
-            command.Parameters.AddWithValue("@customerId", customerId);
+            using SqlCommand command = new($"INSERT INTO Orders (StoreLocation, OrderId, OrderDate, FirstName, LastName) Values(@storeLocation, @orderId, @orderDate, @firstName, @lastName);", connection);
+            command.Parameters.AddWithValue("@storeLocation", storeLocation);
+            command.Parameters.AddWithValue("@orderId", orderId);
             command.Parameters.AddWithValue("@orderDate", orderDate);
             command.Parameters.AddWithValue("@firstName", firstName);
             command.Parameters.AddWithValue("@lastName", lastName);
@@ -56,21 +56,23 @@ namespace Project
         }
         public static void AddNewOrderMadison()
         {
-            string location = "Madison, WI ";
-            int customerId = 1;
+            string storeLocation = "Madison, WI ";
+            int orderId = 1;
             DateTime orderDate = DateTime.Now;
-            string itemName = " ";
+            string firstName = " ";
+            string lastName = " ";
 
             string connectionString = File.ReadAllText("C:/Users/mjwaw/Revature/TextFile1.txt");
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            using SqlCommand command = new($"INSERT INTO Orders (StoreLocation, CustomerId, OrderDate, ItemName) Values(@location, @customerId, @orderDate, @itemName);", connection);
-            command.Parameters.AddWithValue("@location", location);
-            command.Parameters.AddWithValue("@customerId", customerId);
+            using SqlCommand command = new($"INSERT INTO Orders (StoreLocation, OrderId, OrderDate, FirstName, LastName) Values(@storeLocation, @orderId, @orderDate, @firstName, @lastName);", connection);
+            command.Parameters.AddWithValue("@storeLocation", storeLocation);
+            command.Parameters.AddWithValue("@orderId", orderId);
             command.Parameters.AddWithValue("@orderDate", orderDate);
-            command.Parameters.AddWithValue("@itemName", itemName);
+            command.Parameters.AddWithValue("@firstName", firstName);
+            command.Parameters.AddWithValue("@lastName", lastName);
             command.ExecuteNonQuery();
             connection.Close();
         }
